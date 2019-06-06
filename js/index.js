@@ -33,8 +33,7 @@ const siteContent = {
   },
   contact: {
     "contact-h4": "Contact",
-    address1: "123 Way 456",
-    address2: "Street Somewhere, USA",
+    address: "123 Way 456 Street Somewhere, USA",
     phone: "1 (888) 888-8888",
     email: "sales@greatidea.io"
   },
@@ -114,10 +113,32 @@ document.querySelector(".contact h4").textContent =
 
 let contactParagraphs = document.querySelectorAll(".contact p");
 
-contactParagraphs[0].textContent = siteContent["contact"]["address1"];
-contactParagraphs[1].textContent = siteContent["contact"]["address2"];
-contactParagraphs[2].textContent = siteContent["contact"]["phone"];
-contactParagraphs[3].textContent = siteContent["contact"]["contact"];
+contactParagraphs[0].textContent = siteContent["contact"]["address"];
+contactParagraphs[1].textContent = siteContent["contact"]["phone"];
+contactParagraphs[2].textContent = siteContent["contact"]["email"];
 
 document.querySelector("footer p").textContent =
   siteContent["footer"]["copyright"];
+
+let allHeaders = document.querySelectorAll("nav a");
+allHeaders.forEach(item => (item.style.color = "green"));
+// let node1 = document.createElement("a");
+// let node2 = document.createElement("a");
+// node1.textContent = "Careers";
+// node2.textContent = "FAQ";
+
+allHeaders = document.getElementsByTagName("nav")[0];
+
+let createNewNode = name => {
+  let newNode = document.createElement("a");
+  newNode.innerHTML = name;
+  return newNode;
+};
+
+allHeaders.appendChild(createNewNode("Careers"));
+allHeaders.prepend(createNewNode("FAQ"));
+
+console.log(allHeaders);
+
+allHeaders = document.querySelectorAll("nav a");
+allHeaders.forEach(item => (item.style.color = "green"));
